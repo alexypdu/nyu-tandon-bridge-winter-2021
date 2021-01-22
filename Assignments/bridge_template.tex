@@ -1,0 +1,111 @@
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{url}
+\usepackage[demo]{graphicx}
+\usepackage{caption} 
+\usepackage{algpseudocode}
+\usepackage{bbm}
+\usepackage{float}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage[colorlinks=true, linkcolor=red, urlcolor=blue, citecolor=blue]{hyperref}
+
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\let\Pr\relax
+\DeclareMathOperator*{\Pr}{\mathbb{P}}
+\DeclareMathOperator*{\R}{\mathbb{E}}
+
+\topmargin 0pt
+\advance \topmargin by -\headheight
+\advance \topmargin by -\headsep
+\textheight 8.9in
+\oddsidemargin 0pt
+\evensidemargin \oddsidemargin
+\marginparwidth 0.5in
+\textwidth 6.5in
+
+\parindent 0in
+\parskip 1.5ex
+
+\newcommand{\homework}[2]{
+	\noindent
+	\begin{center}
+		\framebox{
+			\vbox{
+				\hbox to 6.50in { {\bf NYU Computer Science Bridge to Tandon Course} \hfill Winter 2021 }
+				\vspace{4mm}
+				\hbox to 6.50in { {\Large \hfill Homework #1  \hfill} }
+				\vspace{2mm}
+				\hbox to 6.50in { {Name: #2 \hfill} }
+			}
+		}
+	\end{center}
+	\vspace*{4mm}
+}
+
+\begin{document}
+	
+	\homework{1}{Star Student}
+	
+	\section*{Problem 1}
+	\textbf{Problem statement:} Problem statement here
+	\medskip
+	
+	Problem answer
+	
+	\begin{align*}
+	\E[X + Y]  &= \E[X] + \E[Y] \\
+	& = 42.
+	\end{align*}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.3\textwidth]{image.jpg}
+		\caption{Images can be included by saving in the same directory as your source code or uploading to an online portal.  These can include hand-drawn images or snippets.  \textbf{IMAGES SHOULD NOT BE SCREENSHOTS OF HANDWRITTEN ANSWERS THAT COULD OTHERWISE BE WRITTEN IN LaTeX}!}
+	\end{figure}
+	
+	You might find it useful to include code snippets:
+	\begin{verbatim}
+	class majorityElement(self, nums) {
+	    count = 0;
+	    candidate = NULL;
+    	
+    	for (i = 1; i < nums; i++) {
+        	if (count == 0)
+        	    candidate = i;
+        	if (i == candidate)
+        	    count++;
+        	else
+        	    count =- 1;
+    	}
+    	
+	    return candidate;
+	}
+	\end{verbatim}
+	
+	And sometimes it might be helpful to include pseudocode:
+	
+	\begin{algorithmic}
+		\State $count \gets 0$
+		\State $candidate \gets null$
+		
+		\For {$i \in {a_1,\dots,a_n}$}
+		\If {$count == 0$}
+		\State $candidate \gets a_i$
+		\EndIf
+		\State {$count \gets count + 1$}
+		\EndFor	
+		\State \Return $candidate$
+	\end{algorithmic}
+	
+	
+	\newpage
+	\section*{Problem 2}
+	\textbf{Problem statement:} Problem statement here
+	\medskip
+	
+	Please start each new problem on a new page. This allows you to tag questions individually for grading.  Sub-problems (e.g. 1(a), 1(b), etc.) can be included on the same page or without breaking to a new page.  
+	
+\end{document}
