@@ -37,7 +37,7 @@
  * j. True
  *
  * Question 9
- * a.
+ * b.
  *
  * Question 10
  * { 0001, 0011, 0101, 0111 }
