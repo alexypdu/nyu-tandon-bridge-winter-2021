@@ -2,15 +2,14 @@
 #include <string>
 using namespace std;
 
-const int NUM_OF_LETTER = 26;
-
 bool are_anagrams(string str_1, string str_2);
-int* compose_frequency(string str);
+void update_occurrence(int occurrence_arr[], char ch);
 
 int main() {
-    string str_1, str_2;
+    string str_1;
+    string str_2;
 
-    cout << "Please enter two strings:\n";
+    cout << "Please enter two strings in two lines:\n";
     getline(cin, str_1);
     getline(cin, str_2);
 
@@ -24,32 +23,31 @@ int main() {
 }
 
 bool are_anagrams(string str_1, string str_2) {
-    int *frequency_1 = compose_frequency(str_1);
-    int *frequency_2 = compose_frequency(str_2);
-    bool res = true;
+    const int NUM_OF_ALPHABET = 26;
+    int occurrence_arr_1[NUM_OF_ALPHABET] = {};
+    int occurrence_arr_2[NUM_OF_ALPHABET] = {};
 
-    for (int i = 0; i < NUM_OF_LETTER; i++) {
-        if (frequency_1[i] != frequency_2[i]) {
-            res = false;
-            break;
+    for (char ch: str_1) {
+        update_occurrence(occurrence_arr_1, ch);
+    }
+
+    for (char ch: str_2) {
+        update_occurrence(occurrence_arr_2, ch);
+    }
+
+    for (int i = 0; i < NUM_OF_ALPHABET; i++) {
+        if (occurrence_arr_1[i] != occurrence_arr_2[i]) {
+            return false;
         }
     }
 
-    delete [] frequency_1;
-    delete [] frequency_2;
-    return res;
+    return true;
 }
 
-int* compose_frequency(string str) {
-    int *frequency = new int [NUM_OF_LETTER];
-
-    for (char ch: str) {
-        if (('a' <= ch) && (ch <= 'z')) {
-            frequency[ch - 'a']++;
-        } else if (('A' <= ch) && (ch <= 'Z')) {
-            frequency[ch - 'A']++;
-        }
+void update_occurrence(int occurrence_arr[], char ch) {
+    if (('a' <= ch) && (ch <= 'z')) {
+        occurrence_arr[ch - 'a']++;
+    } else if (('A' <= ch) && (ch <= 'Z')) {
+        occurrence_arr[ch - 'A']++;
     }
-
-    return frequency;
 }

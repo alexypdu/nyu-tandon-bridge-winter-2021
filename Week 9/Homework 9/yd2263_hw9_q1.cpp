@@ -3,13 +3,16 @@
 using namespace std;
 
 bool is_delimiter(char ch);
-void update_frequency(int frequency[], char ch);
+void update_occurrence(int occurrence_arr[], char ch);
 
 int main() {
-    int letter_count = 0, word_count = 0;
-    int frequency[26] = {};
+    const int NUM_OF_ALPHABET = 26;
+    int letter_count = 0;
+    int word_count = 0;
+    int occurrence_arr[NUM_OF_ALPHABET] = {};
     string line;
 
+    cout << "Please enter a line of text:\n";
     getline(cin, line);
 
     for (char ch: line) {
@@ -20,16 +23,16 @@ int main() {
 
             letter_count = 0;
         } else {
-            update_frequency(frequency, ch);
+            update_occurrence(occurrence_arr, ch);
             letter_count++;
         }
     }
 
     cout << word_count << "\twords\n";
 
-    for (int i = 0; i < 26; i++) {
-        if (frequency[i] > 0) {
-            cout << frequency[i] << "\t" << static_cast<char>('a' + i) << endl;
+    for (int i = 0; i < NUM_OF_ALPHABET; i++) {
+        if (occurrence_arr[i] > 0) {
+            cout << occurrence_arr[i] << "\t" << static_cast<char>('a' + i) << endl;
         }
     }
 
@@ -40,14 +43,10 @@ bool is_delimiter(char ch) {
     return (ch == ' ') || (ch == ',') || (ch == '.');
 }
 
-void update_frequency(int frequency[], char ch) {
-    int diff;
-
-    if (ch >= 'a') {
-        diff = ch - 'a';
-    } else {
-        diff = ch - 'A';
+void update_occurrence(int occurrence_arr[], char ch) {
+    if (('a' <= ch) && (ch <= 'z')) {
+        occurrence_arr[ch - 'a']++;
+    } else if (('A' <= ch) && (ch <= 'Z')) {
+        occurrence_arr[ch - 'A']++;
     }
-
-    frequency[diff]++;
 }
