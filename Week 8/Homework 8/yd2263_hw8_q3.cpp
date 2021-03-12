@@ -68,7 +68,7 @@ void removeOdd(int arr[], int& arrSize) {
 
 void splitParity(int arr[], int arrSize) {
     for (int i = 0, j = 0; j < arrSize; j++) {
-        if (arr[j] % 2 == 1) {
+        if (arr[j] % 2 != 0) {
             swap(arr[i], arr[j]);
             i++;
         }
