@@ -21,7 +21,7 @@ int main() {
 }
 
 int* find_missing(const int arr[], int n, int& res_arr_size) {
-    int* occurrence = new int[n + 1];
+    int* occurrence = new int[n + 1](); // value-initialize dynamic array
 
     for (int i = 0; i < n; i++) {
         occurrence[arr[i]]++;
