@@ -22,7 +22,7 @@ int main() {
 
     cout << endl;
 
-    int arr_2[6] = { 1, 2, 3, 4, 5, 6 };
+    int arr_2[] = { 1, 2, 3, 4, 5, 6 };
     int arr_2_size = sizeof(arr_2) / sizeof(*arr_2);
 
     cout << "arr_2: ";
