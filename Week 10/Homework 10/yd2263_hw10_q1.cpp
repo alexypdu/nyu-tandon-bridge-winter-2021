@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-string* create_words_array(const string& sentence, int& out_words_arr_size);
+string* create_words_array(string sentence, int& out_words_arr_size);
 void print_words_array(const string arr[], int arr_size);
 
 int main() {
@@ -21,7 +21,7 @@ int main() {
     return 0;
 }
 
-string* create_words_array(const string& sentence, int& out_words_arr_size) {
+string* create_words_array(string sentence, int& out_words_arr_size) {
     int start = 0, word_count = 0;
     string* words_arr = new string[sentence.length()];
 
