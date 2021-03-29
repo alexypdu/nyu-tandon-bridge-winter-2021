@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int* find_missing(const int arr[], int n, int& res_arr_size);
+int* find_missing(int arr[], int n, int& res_arr_size);
 void print_array(const int arr[], int arr_size);
 
 int main() {
@@ -20,7 +20,7 @@ int main() {
     return 0;
 }
 
-int* find_missing(const int arr[], int n, int& res_arr_size) {
+int* find_missing(int arr[], int n, int& res_arr_size) {
     int* occurrence = new int[n + 1](); // value-initialize dynamic array
 
     for (int i = 0; i < n; i++) {
