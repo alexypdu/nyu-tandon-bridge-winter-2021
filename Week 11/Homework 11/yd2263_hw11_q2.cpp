@@ -70,6 +70,6 @@ bool is_sorted(int arr[], int arr_size) {
         int last = arr[arr_size - 1];
         int one_before_last = arr[arr_size - 2];
 
-        return is_sorted(arr, arr_size - 1) && (one_before_last < last);
+        return is_sorted(arr, arr_size - 1) && (one_before_last <= last);
     }
 }
