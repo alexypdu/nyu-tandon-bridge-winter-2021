@@ -107,6 +107,9 @@ int main() {
     cout << endl;
     list_uncashed_checks(checks, num_of_checks);
 
+    delete [] checks;
+    delete [] deposits;
+
     return 0;
 }
 
