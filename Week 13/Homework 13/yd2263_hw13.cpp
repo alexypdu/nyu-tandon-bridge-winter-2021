@@ -91,6 +91,7 @@ public:
     void move_organism(const Position& curr_pos, const Position& next_pos);
     void remove_organism(const Organism* organism_ptr);
     void display() const;
+    
 private:
     Organism* grid[GRID_SIZE][GRID_SIZE];
 };
