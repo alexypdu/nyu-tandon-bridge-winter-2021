@@ -2,7 +2,7 @@
 
 ## Agenda
 
-Hopefully everyone is getting caught up with the Object Oriented material and the Doodlebug problem.  Unfortunately, there’s no time to take a break!  We’re moving on but, thankfully, with a bit of an easier topic.  This week, we have two topics at hand, searching and sorting.  The videos are up now and you should begin watching them.  As usual, we will discuss this topic (and I'm sure you'll have doodlebug questions) during our Thursday meeting!
+Hopefully everyone is getting caught up with the Object Oriented material and the Doodlebug problem. Unfortunately, there’s no time to take a break! We’re moving on but, thankfully, with a bit of an easier topic. This week, we have two topics at hand, searching and sorting. The videos are up now and you should begin watching them. As usual, we will discuss this topic (and I'm sure you'll have doodlebug questions) during our Thursday meeting!
 
 For this week, please do the following:
 

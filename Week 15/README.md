@@ -2,7 +2,7 @@
 
 ## Agenda
 
-This week, we have two topics at hand, File processing and Linked lists.  The videos are up now and you should begin watching them.  As usual, we will discuss this topic  during our Thursday meeting!
+This week, we have two topics at hand, File processing and Linked lists. The videos are up now and you should begin watching them. As usual, we will discuss this topic  during our Thursday meeting!
 
 For this week, please do the following:
 
