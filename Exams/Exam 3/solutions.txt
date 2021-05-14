@@ -1,0 +1,162 @@
+
+Name: Yun-Ping Du
+ 
+netId: yd2263
+
+
+
+
+
+Solutions to midterm exam
+
+
+Question 1 (Multiple choice answer): c
+
+Question 2 (Multiple choice answer): b
+
+Question 3 (Expression): 345+2/*
+
+Question 4 
+	a) Constructor
+	b) Copy Constructor
+	c) Destructor
+
+Question 5 (sequence): 2, 5, 4, 3, 8, 9, 7
+
+Question 6 (code):
+
+bool bussesTooClose(string busLine) {
+    vector<double> locations = getBusLineInfo(busLine);
+
+    if (locations.size() < 2) {
+        return false;
+    }
+
+    sort(locations.begin(), locations.end());
+
+    for (int i = 0; i < locations.size() - 1; ++i) {
+        if (locations[i + 1] - locations[i] < 1) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+Question 7 (code):
+void fixTheList(LListNode<T>* first){
+    if (first == nullptr) {
+        return;
+    }
+
+    int i = 1;
+    LListNode<T>* prev;
+    LListNode<T>* curr;
+    prev = first->prev;
+    curr = first;
+
+    while (curr != nullptr && curr->next != nullptr) { // do not need to fix dummy nodes
+        if (i % 2 == 0) {
+            curr->next = curr->prev;
+            curr->prev = prev;
+        }
+
+        prev = curr;
+        curr = curr->next;
+        ++i;
+    }
+}
+
+
+Question 8(code):
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Discount {
+    double _amount;
+    double _percent;
+public:
+    Discount() : _amount(0), _percent(0) {}
+    Discount(double amount, double percent) : _amount(amount), _percent(percent) {}
+
+    double getAmount() const {
+        return _amount;
+    }
+
+    double getPercent() const {
+        return _percent;
+    }
+
+    virtual double calculateFinalDiscount(double originalPrice) = 0;
+};
+
+class SinglePercentDiscount : public Discount {
+public:
+    SinglePercentDiscount() : Discount() {}
+    SinglePercentDiscount(double percent) : Discount(0, percent) {}
+
+    double calculateFinalDiscount(double originalPrice) {
+        return originalPrice * getPercent();
+    }
+};
+
+class SingleValueDiscount : public Discount {
+public:
+    SingleValueDiscount() : Discount() {}
+    SingleValueDiscount(double amount) : Discount(amount, 0) {}
+
+    double calculateFinalDiscount(double originalPrice) {
+        return getAmount();
+    }
+};
+
+class MultiDiscount : public Discount {
+public:
+    MultiDiscount() : Discount() {}
+    MultiDiscount(double percent, double amount) : Discount(amount, percent) {}
+
+    double calculateFinalDiscount(double originalPrice) {
+        return getAmount() + (originalPrice - getAmount()) * getPercent();
+    }
+};
+
+class Order {
+    vector<double> prices;
+    vector<Discount*> discounts;
+public:
+    Order() {}
+
+    void addItem(double price, Discount* discount) {
+        prices.push_back(price);
+        discounts.push_back(discount);
+    }
+
+    double totalCost() {
+        double res = 0;
+
+        for (int i = 0; i < prices.size(); ++i) {
+            double discount = (discounts[i] == nullptr) ? 0 : discounts[i]->calculateFinalDiscount(prices[i]);
+            res += prices[i] - discount;
+        }
+
+        return res;
+    }
+};
+
+int main() {
+    Order firstOrder;
+    SingleValueDiscount svd10(10);
+    SinglePercentDiscount spd5(0.5);
+    MultiDiscount md(0.102, 5.5);
+    firstOrder.addItem(20, &svd10);
+    firstOrder.addItem(100, &spd5);
+    firstOrder.addItem(20, &md);
+    firstOrder.addItem(20, nullptr);
+    cout << firstOrder.totalCost() << endl;
+
+    return 0;
+}
+
+
