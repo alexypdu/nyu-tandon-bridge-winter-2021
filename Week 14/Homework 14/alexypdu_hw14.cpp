@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 vector<int> find_min_max(const vector<int>& v, int low, int high);
