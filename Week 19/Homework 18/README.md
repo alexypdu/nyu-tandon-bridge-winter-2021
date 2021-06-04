@@ -1,7 +1,5 @@
 # Homework 18
 
-Due: May 29, 2021 11:55 AM
-
 ## Instructions
 
 For this homework, I would like you to get a little experience with Linux. To do this, you will need a computer capable of running virtualbox or another Virtual machine environment. Download the latest VirtualBox software, it's free and download the ISO of Ubuntu's latest LTS operating system.
