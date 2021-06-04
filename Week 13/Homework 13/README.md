@@ -1,7 +1,5 @@
 # Homework 13
 
-Due: Apr 17, 2021 11:55 AM
-
 ## Instructions
 
 CH16# 9:  

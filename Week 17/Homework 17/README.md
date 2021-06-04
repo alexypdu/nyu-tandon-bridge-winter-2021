@@ -1,7 +1,5 @@
 # Homework 17
 
-Due: May 15, 2021 11:55 AM
-
 ## Instructions
 
 In this assignment, you will complete the code for insertions in a Red-Black tree. We've provided a framework with comments. You should complete the sections labeled "TODO"
