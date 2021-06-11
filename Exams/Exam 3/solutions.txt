@@ -14,7 +14,7 @@ Question 1 (Multiple choice answer): c
 
 Question 2 (Multiple choice answer): b
 
-Question 3 (Expression): 345+2/*
+Question 3 (Expression): 345+*2/
 
 Question 4 
 	a) Constructor
@@ -56,7 +56,7 @@ void fixTheList(LListNode<T>* first){
     prev = first->prev;
     curr = first;
 
-    while (curr != nullptr && curr->next != nullptr) { // do not need to fix dummy nodes
+    while (curr->next != nullptr) { // do not need to fix dummy nodes
         if (i % 2 == 0) {
             curr->next = curr->prev;
             curr->prev = prev;

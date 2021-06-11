@@ -20,7 +20,7 @@ void fixTheList(LListNode* first){
     prev = first->prev;
     curr = first;
 
-    while (curr != nullptr && curr->next != nullptr) { // do not need to fix dummy nodes
+    while (curr->next != nullptr) { // do not need to fix dummy nodes
         if (i % 2 == 0) {
             curr->next = curr->prev;
             curr->prev = prev;
