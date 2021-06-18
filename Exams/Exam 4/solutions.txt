@@ -1,0 +1,80 @@
+Name: Yun-Ping Du
+ 
+netId: yd2263
+
+
+
+1) (3pts) Multiple Choice: c
+2) (3pts) Multiple Choice: b
+3) (3pts) Multiple Choice: d
+4) (3pts) Multiple Choice: c
+5) (3pts) Multiple Choice: a
+
+
+6) (10 pts) Short answer:
+
+OS would need to create a new page for the process, and some load control mechanics may be applied to provide the
+necessary space if the main memory is already full.
+
+7) (10 pts) Short answer:
+
+Processes in kernel mode could perform direct actions to the hardware, which also put the system under the risk of
+failure such as Blue Screen Death. Thus modern Microsoft operating systems impose the restriction on most processes to
+guarantee better user experience and system stability.
+
+8) (10 pts) Short answer:
+
+Suppose we have two machines with the same IP addresses in the network, then the router would fail to deliver incoming
+packets to either of them as the router could not tell which device is the desired destination when it see the specific
+IP address. DHCP servers would spot the duplicates when new devices comes in and asks for an IP address, and then the
+servers would reassign IP addresses to those two machines.
+
+9) (10 pts) Short answer:
+
+side A -> router 1 -> router 2 -> ... -> router 10 -> side B
+(assume side A and router 1 are really close, similar for side B and router 10)
+
+Total Delay = 2 ms * 10 (processing delay on each router)
+            + 9 * (3 * 10^3) / (3 * 10^8) s (sum of distance between every router divided by the light speed)
+            = 20 ms + 0.09 ms
+            = 20.09 ms
+
+10) (15 pts) Long answer:
+
+Router B would broadcast its distance vector; here the metric is the number of hops.
+
+-----------------------------
+| Destination      | Metric |
+|----------------------------
+| Router A         |   1    |
+| Router C         |   1    |
+| net: 10.1.0.0/24 |   2    |
+| net: 10.1.1.0/24 |   2    |
+| net: 10.2.0.0/24 |   1    |
+| net: 10.3.0.0/24 |   2    |
+| net: 10.3.1.0/24 |   2    |
+-----------------------------
+
+11) (10 pts) Short answer:
+
+Keeping a process on a single CPU may reduce the overhead of moving data in and out the register.
+
+12) (20 pts) Write the code:
+
+bool helper(const vector<int>& v, int low, int high, BSTNode<int>* root) {
+    if (root == nullptr) {
+        return true;
+    }
+
+    int mid = low + (high - low) / 2;
+
+    if (v[mid] == root->val) {
+        return helper(v, low, mid - 1, root->left) && helper(v, mid + 1, high, root->right);
+    } else {
+        return false;
+    }
+}
+
+bool treeMatchesVector(const vector<int> v, BSTNode<int>* root) {
+    return helper(v, 0, v.size() - 1, root);
+}
